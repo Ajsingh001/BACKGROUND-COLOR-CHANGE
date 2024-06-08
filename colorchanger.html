@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        ::before,
+        ::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            max-width: 1200px;
+            height: 100vh;
+            margin: auto;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .main {
+            position: relative;
+            width: 1000px;
+            height: 200px;
+            border: 2px solid #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .color {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #fff;
+            margin: 0px 15px 0px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        span {
+            pointer-events: none;
+            cursor: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="color" id="blue">click</div>
+        <div class="color" id="green">click me</div>
+        <div class="color" id="yellow">click me</div>
+        <div class="color" id="red">click me</div>
+
+    </div>
+
+</body>
+<script>
+    "use strict"
+    function colorin() {
+
+        const col = document.querySelectorAll(".color");
+        const body = document.querySelectorAll("body");
+        col.forEach((i) => {
+            if (i.id == "red") {
+                document.querySelector("#red").style.background = "red"
+            }
+            else if (i.id == "green") {
+                document.querySelector("#green").style.background = "green"
+            }
+            else if (i.id == "blue") {
+                document.querySelector("#blue").style.background = "blue"
+            }
+            else {
+                document.querySelector("#yellow").style.background = "yellow"
+                document.querySelector("#yellow").style.color = "black"
+            }
+
+            i.addEventListener("click", (e) => {
+                if (e.target.id === "red") {
+                    document.querySelector("body").style.background = "red"
+                }
+                else if (e.target.id === "blue") {
+                    document.querySelector("body").style.background = "blue"
+                }
+                else if (e.target.id === "yellow") {
+                    document.querySelector("body").style.background = "yellow"
+                }
+                else {
+                    document.querySelector("body").style.background = "green"
+
+                }
+
+            })
+
+        })
+
+    }
+    colorin();
+
+
+
+</script>
+
+</html>

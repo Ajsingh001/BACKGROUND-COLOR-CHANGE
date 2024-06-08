@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        ::before,
+        ::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            max-width: 1200px;
+            height: 100vh;
+            margin: auto;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .main {
+            position: relative;
+            width: 1000px;
+            height: 200px;
+            border: 2px solid #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .color {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #fff;
+            margin: 0px 15px 0px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        span {
+            pointer-events: none;
+            cursor: none;
+        }
+
+        /* .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .yellow {
+            background-color: rgb(217, 245, 106);
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="color blue" id="ya"><span>click me</span></div>
+        <div class="color green" id="ya"><span>click me</span></div>
+        <div class="color yellow" id="ya"><span>click me</span></div>
+        <div class="color red" id="ya"><span>click me</span></div>
+
+    </div>
+</body>
+<script>
+    "use strict"
+
+    document.querySelector(".red").addEventListener("click", (e) => {
+        document.querySelector("body").style.background = "red"
+        document.querySelector("body").style.transition = "1s"
+        // e.preventDefault()
+    })
+    document.querySelector(".blue").addEventListener("click", () => {
+        document.querySelector("body").style.background = "blue"
+        document.querySelector("body").style.transition = "1s"
+    })
+    document.querySelector(".green").addEventListener("click", () => {
+        document.querySelector("body").style.background = "green"
+        document.querySelector("body").style.transition = "1s"
+    })
+    document.querySelector(".yellow").addEventListener("click", () => {
+        document.querySelector("body").style.background = "yellow"
+        document.querySelector("body").style.transition = "1s"
+    })
+
+
+    //mouseclick//
+    document.querySelector(".red").addEventListener("contextmenu", (e) => { console.log(e.timeStamp) })
+
+    //mousedblclick//
+    document.querySelector(".green").addEventListener("dblclick", (e) => { console.log(e.timeStamp) })
+
+    //mouseenter//
+
+    document.querySelector(".green").addEventListener("mouseenter", (e) => { console.log(e.timeStamp) })
+
+    //mouseleave//
+    document.querySelector(".green").addEventListener("mouseleave", (e) => { console.log(e.timeStamp) })
+
+    //mousedown//
+    document.querySelector(".yellow").addEventListener("mousedown", (e) => {
+        document.querySelectorAll(".color").forEach((i) => {
+            i.style.background = "white"
+        })
+    })
+
+    //mouseup//
+    document.querySelector(".blue").addEventListener("mouseup", (e) => {
+        document.querySelectorAll(".color").forEach((i) => {
+            document.querySelector(".red").style.background = "red"
+            document.querySelector(".red").style.transition = "1s"
+            document.querySelector(".blue").style.background = "blue"
+            document.querySelector(".blue").style.transition = "1s"
+
+
+            document.querySelector(".green").style.background = "green"
+            document.querySelector(".green").style.transition = "1s"
+            document.querySelector(".yellow").style.background = "yellow"
+            document.querySelector(".yellow").style.transition = "1s"
+
+
+        })
+    })
+
+    //mousemove//
+
+    document.querySelector("body").addEventListener("mousemove", (e) => {
+
+        let x = event.clientX;
+        let y = event.clientY;
+        console.log(`x ${x} and y${y}`)
+        if (x > 507 && y < 156) {
+            document.querySelector("body").style.background = "orange"
+            document.querySelector("body").style.transition = "2s"
+
+        }
+        else {
+            document.querySelector("body").style.background = "black"
+            document.querySelector("body").style.transition = "2s"
+
+        }
+    })
+
+
+    // document.querySelector(".color").style.background = "red"
+
+
+    function colorchanger() {
+        const x = document.getElementsByClassName("color")
+        const a = Array.from(x)
+        console.log(a)
+        for (let i = 0; i < a.length; i++) {
+            if (document.querySelector(".red") && document.querySelector(".blue") && document.querySelector(".green") && document.querySelector(".yellow")) {
+                document.querySelector(".red").style.background = "red"
+                document.querySelector(".blue").style.background = "blue"
+                document.querySelector(".green").style.background = "green"
+                document.querySelector(".yellow").style.background = "yellow"
+                document.querySelector(".yellow").style.color = "black"
+
+            }
+        }
+        console.log(x)
+    }
+    colorchanger()
+
+    // document.querySelectorAll(".color").forEach((i) => {
+    //     i.addEventListener("click", (e) => {
+    //         document.querySelector("body").style.background = "blue "
+    //         e.stopPropagation();
+    //         e.preventDefault()
+    //     })
+    // })
+
+</script>
+
+</html>
